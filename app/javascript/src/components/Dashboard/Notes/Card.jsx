@@ -5,12 +5,22 @@ import { Typography, Tag, Avatar, Tooltip, Dropdown } from "neetoui";
 
 import { formatTime, calculateCreatedAgo } from "./utils";
 
-const Card = ({ note, setSelectedNote, setShowEditNote }) => {
+const Card = ({
+  note,
+  setSelectedNote,
+  setShowEditNote,
+  setShowDeleteAlert,
+}) => {
   const { title, description, created_at: createdAt } = note;
 
   const showEditPane = () => {
     setSelectedNote(note);
     setShowEditNote(true);
+  };
+
+  const handleDeleteNote = () => {
+    setSelectedNote(note);
+    setShowDeleteAlert(true);
   };
 
   return (
@@ -20,7 +30,7 @@ const Card = ({ note, setSelectedNote, setShowEditNote }) => {
           <Typography style="h4">{title}</Typography>
           <Dropdown buttonStyle="text" icon={MenuVertical}>
             <li onClick={showEditPane}>Edit</li>
-            <li>Delete</li>
+            <li onClick={handleDeleteNote}>Delete</li>
           </Dropdown>
         </div>
         <Typography style="body2">{description}</Typography>
