@@ -1,8 +1,9 @@
 import React from "react";
 
-import dayjs from "dayjs";
 import { Clock, MenuVertical } from "neetoicons";
 import { Typography, Tag, Avatar, Tooltip, Dropdown } from "neetoui";
+
+import { formatTime, calculateCreatedAgo } from "./utils";
 
 const Card = ({ note, setSelectedNote, setShowEditNote }) => {
   const { title, description, created_at: createdAt } = note;
@@ -29,12 +30,9 @@ const Card = ({ note, setSelectedNote, setShowEditNote }) => {
         <Tag color="gray" label="Getting Started" size="small" />
         <div className="flex flex-row items-center gap-x-1.5">
           <Clock size={10} />
-          <Tooltip
-            content={dayjs(createdAt).format("dddd, hh:mmA")}
-            position="bottom"
-          >
+          <Tooltip content={formatTime(createdAt)} position="bottom">
             <Typography style="body3">
-              Created {dayjs(createdAt).fromNow()}
+              Created {calculateCreatedAgo(createdAt)}
             </Typography>
           </Tooltip>
           <Avatar
@@ -42,7 +40,7 @@ const Card = ({ note, setSelectedNote, setShowEditNote }) => {
             user={{
               imageUrl: "https://i.pravatar.cc/300",
             }}
-            onClick={function noRefCheck() {}}
+            onClick={() => {}}
           />
         </div>
       </div>
