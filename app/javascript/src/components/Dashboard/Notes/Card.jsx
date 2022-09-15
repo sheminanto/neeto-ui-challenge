@@ -18,7 +18,7 @@ const Card = ({
     setShowEditNote(true);
   };
 
-  const handleDeleteNote = () => {
+  const handleDelete = () => {
     setSelectedNote(note);
     setShowDeleteAlert(true);
   };
@@ -30,7 +30,7 @@ const Card = ({
           <Typography style="h4">{title}</Typography>
           <Dropdown buttonStyle="text" icon={MenuVertical}>
             <li onClick={showEditPane}>Edit</li>
-            <li onClick={handleDeleteNote}>Delete</li>
+            <li onClick={handleDelete}>Delete</li>
           </Dropdown>
         </div>
         <Typography style="body2">{description}</Typography>

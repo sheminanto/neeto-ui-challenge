@@ -4,15 +4,19 @@ import { Search, Settings, Plus } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 
-const Menu = ({ showMenu }) => {
+const Menu = ({ title, showMenu, userCategories, segments, tags }) => {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
 
   return (
-    <MenuBar showMenu={showMenu} title="Contacts">
-      <MenuBar.Block active count={13} label="All" />
-      <MenuBar.Block count={2} label="Users" />
-      <MenuBar.Block count={7} label="Leads" />
-      <MenuBar.Block count={4} label="Visitors" />
+    <MenuBar showMenu={showMenu} title={title}>
+      {userCategories.map(({ label, count, isActive }) => (
+        <MenuBar.Block
+          active={isActive}
+          count={count}
+          key={label}
+          label={label}
+        />
+      ))}
       <MenuBar.SubTitle
         iconProps={[
           {
@@ -35,9 +39,9 @@ const Menu = ({ showMenu }) => {
         collapse={isSearchCollapsed}
         onCollapse={() => setIsSearchCollapsed(true)}
       />
-      <MenuBar.Block count={80} label="Europe" />
-      <MenuBar.Block count={60} label="Middle-East" />
-      <MenuBar.Block count={60} label="Asia" />
+      {segments.map(({ count, label }) => (
+        <MenuBar.Block count={count} key={label} label={label} />
+      ))}
       <MenuBar.SubTitle
         iconProps={[
           {
@@ -60,9 +64,9 @@ const Menu = ({ showMenu }) => {
           Tags
         </Typography>
       </MenuBar.SubTitle>
-      <MenuBar.Block count={80} label="Europe" />
-      <MenuBar.Block count={60} label="Middle-East" />
-      <MenuBar.Block count={60} label="Asia" />
+      {tags.map(({ label, count }) => (
+        <MenuBar.Block count={count} key={label} label={label} />
+      ))}
     </MenuBar>
   );
 };
