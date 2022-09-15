@@ -9,6 +9,11 @@ import EmptyState from "components/Common/EmptyState";
 import Menu from "components/Dashboard/Menu";
 
 import Card from "./Card";
+import {
+  NOTES_MENUBAR_USER_CATEGORIES,
+  NOTES_MENUBAR_SEGMENTS,
+  NOTES_MENUBAR_TAGS,
+} from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import NewNotePane from "./Pane/Create";
 import EditNotePane from "./Pane/Edit";
@@ -45,7 +50,13 @@ const Notes = () => {
 
   return (
     <>
-      <Menu showMenu={showMenu} />
+      <Menu
+        segments={NOTES_MENUBAR_SEGMENTS}
+        showMenu={showMenu}
+        tags={NOTES_MENUBAR_TAGS}
+        title="Notes"
+        userCategories={NOTES_MENUBAR_USER_CATEGORIES}
+      />
       <Container>
         <Header
           menuBarToggle={() => setShowMenu(showMenu => !showMenu)}
