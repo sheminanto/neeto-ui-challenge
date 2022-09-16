@@ -13,11 +13,15 @@ import {
   CONTACTS_MENUBAR_SEGMENTS,
   CONTACTS_MENUBAR_TAGS,
 } from "./constants";
+import DeleteAlert from "./DeleteAlert";
+import NewContactPane from "./pane/Create";
 import Table from "./Table";
 
 const Contacts = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   return (
     <>
@@ -36,7 +40,7 @@ const Contacts = () => {
             <Button
               icon="ri-add-line"
               label="Add New Contact"
-              onClick={() => {}}
+              onClick={() => setShowNewContactPane(true)}
             />
           }
           searchProps={{
@@ -46,7 +50,7 @@ const Contacts = () => {
           }}
         />
         {CONTACTS.length ? (
-          <Table contacts={CONTACTS} />
+          <Table setShowDeleteAlert={setShowDeleteAlert} />
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
@@ -55,6 +59,13 @@ const Contacts = () => {
             subtitle="Add your contacts to assign notes to them."
             title="Looks like you don't have any notes!"
           />
+        )}
+        <NewContactPane
+          setShowPane={setShowNewContactPane}
+          showPane={showNewContactPane}
+        />
+        {showDeleteAlert && (
+          <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
         )}
       </Container>
     </>
