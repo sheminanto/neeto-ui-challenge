@@ -1,11 +1,12 @@
 import React from "react";
 
+import dayjs from "dayjs";
 import { MenuVertical } from "neetoicons";
-import { Avatar, Typography } from "neetoui";
+import { Avatar, Typography, Dropdown } from "neetoui";
 
-import { formatTime } from "./utils";
+export const formatTime = dateTime => dayjs(dateTime).format("MMM, D, YYYY");
 
-export const CONTACTS_TABLE_COLUMN_DATA = [
+export const tableColumn = setShowDeleteAlert => [
   {
     title: "Name & Role",
     dataIndex: "name",
@@ -45,6 +46,10 @@ export const CONTACTS_TABLE_COLUMN_DATA = [
     dataIndex: "options",
     key: "options",
     width: "20",
-    render: () => <MenuVertical />,
+    render: () => (
+      <Dropdown buttonStyle="text" icon={MenuVertical}>
+        <li onClick={() => setShowDeleteAlert(true)}>Delete</li>
+      </Dropdown>
+    ),
   },
 ];

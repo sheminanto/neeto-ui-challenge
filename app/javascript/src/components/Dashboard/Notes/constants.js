@@ -24,7 +24,7 @@ export const NOTES_TABLE_COLUMN_DATA = [
 
 export const NOTES_FORM_TAGS_DATA = [
   {
-    value: "getting_started",
+    value: "getting-started",
     label: "Getting Started",
   },
   {
@@ -32,7 +32,7 @@ export const NOTES_FORM_TAGS_DATA = [
     label: "Onboarding",
   },
   {
-    value: "user_flow",
+    value: "user-flow",
     label: "User Flow",
   },
   {
@@ -51,11 +51,11 @@ export const NOTES_FORM_TAGS_DATA = [
 
 export const NOTES_FORM_CONTACTS_DATA = [
   {
-    value: "ronald_richards",
+    value: "ronald-richards",
     label: "Ronald Richards",
   },
   {
-    value: "jacob_jones",
+    value: "jacob-ones",
     label: "Jacob Jones",
   },
 ];
