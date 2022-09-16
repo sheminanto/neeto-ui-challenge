@@ -34,12 +34,14 @@ const Form = ({ onClose }) => {
                 className="w-full"
                 label="First Name"
                 name="firstName"
+                placeholder="Enter First Name"
               />
               <Input
                 required
                 className="w-full"
                 label="Last Name"
                 name="lastName"
+                placeholder="Enter Last Name"
               />
             </div>
             <Input
@@ -47,6 +49,7 @@ const Form = ({ onClose }) => {
               className="w-full flex-grow-0"
               label="Email"
               name="email"
+              placeholder="Enter Email"
             />
             <Select
               required
@@ -54,6 +57,7 @@ const Form = ({ onClose }) => {
               label="Role"
               name="role"
               options={CONTACTS_FORM_ROLES_DATA}
+              placeholder="Select Role"
               size="small"
             />
           </Pane.Body>
