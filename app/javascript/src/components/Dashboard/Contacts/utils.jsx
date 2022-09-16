@@ -6,7 +6,7 @@ import { Avatar, Typography, Dropdown } from "neetoui";
 
 export const formatTime = dateTime => dayjs(dateTime).format("MMM, D, YYYY");
 
-export const tableColumn = setShowDeleteAlert => [
+export const buildTableColumnData = setShowDeleteAlert => [
   {
     title: "Name & Role",
     dataIndex: "name",

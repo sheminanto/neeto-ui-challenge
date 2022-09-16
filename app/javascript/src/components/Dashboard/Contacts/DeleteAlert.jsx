@@ -7,6 +7,7 @@ const DeleteAlert = ({ onClose }) => {
     Toastr.success("Contact deleted successfully");
     onClose();
   };
+
   return (
     <Alert
       isOpen
