@@ -14,7 +14,7 @@ import {
   CONTACTS_MENUBAR_TAGS,
 } from "./constants";
 import DeleteAlert from "./DeleteAlert";
-import NewContactPane from "./pane/Create";
+import NewContactPane from "./Pane/Create";
 import Table from "./Table";
 
 const Contacts = () => {
